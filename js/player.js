@@ -1,0 +1,91 @@
+class Player {
+  constructor(gameScreen, left, top, width, height, imgSrc) {
+    this.gameScreen = gameScreen;
+    this.left = left;
+    this.top = top;
+    this.width = width;
+    this.height = height;
+
+    // to control direction movements
+    this.directionX = 0; // -1 left, 0 still, 1 right
+    this.directionY = 0; // -1 top, 0 still, 1 bottom
+
+    // callback function to add player
+    this.addPlayer(imgSrc);
+
+    // DOM manipulation: to insert the player in the screen
+    this.element = document.createElement('img');
+  }
+
+  // to add the player to the screen
+  addPlayer(imgSrc) {
+    this.element.src = imgSrc;
+    this.element.style.position = 'absolute';
+    this.element.style.width = `${this.width}px`;
+    this.element.style.height = `${this.height}px`;
+    this.element.style.left = `${this.left}px`;
+    this.element.style.top = `${this.top}px`;
+    this.gameScreen.appendChild(this.element);
+  }
+
+  // to move the player
+  move() {
+    // update the player position
+    this.left += this.directionX;
+    this.top += this.directionY;
+
+    // preventing the player from leaving the game screen
+    // TO-DO: REVIEW THE NUMBERS
+    // left side
+    if (this.left < 25) {
+      this.left = 25;
+    }
+
+    // top side
+    if (this.top < 10) {
+      this.top = 10;
+    }
+
+    // right side
+    const rightMaxValue = this.gameScreen.offsetWidth - this.width - 25;
+    if (this.left > rightMaxValue) {
+      this.left = rightMaxValue;
+    }
+
+    // bottom side
+    const bottomMaxValue = this.gameScreen.offsetHeight - this.height - 10;
+    if (this.top > bottomMaxValue) {
+      this.top = bottomMaxValue;
+    }
+
+    // callback function to update position
+    this.updatePosition();
+  }
+
+  // DOM manipulation: to update the player position
+  updatePosition() {
+    this.element.style.left = `${this.left}px`;
+    this.element.style.top = `${this.top}px`;
+  }
+
+  // to collide the player & obstacle
+  didCollide(obstacle) {
+    // get the rectangule around the player and the obstacle
+    const playerRect = this.element.getBoundingClientRect();
+    const obstacleRect = obstacle.element.getBoundingClientRect();
+
+    // collision
+    if (
+      playerRect.left < obstacleRect.right &&
+      playerRect.right > obstacleRect.left &&
+      playerRect.top < obstacleRect.bottom &&
+      playerRect.bottom > obstacleRect.top
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+
+    // note: the logic for loosing lives or eating friends is in the game.js
+  }
+}
