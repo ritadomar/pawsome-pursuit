@@ -4,20 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pawsome Pursuit</title>
+    <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
-    <!-- INTRO SCREEN -->
-    <!-- TBD -> does user choose player here or after start? -->
-    <div id="start-screen"></div>
+    <main>
+      <!-- INTRO SCREEN -->
+      <!-- TBD: does user choose player here or after start? -->
+      <div id="start-screen">
+        <h1 class="title">Pawsome Pursuit</h1>
+        <h2 class="subtitle">Pick your player:</h2>
+        <form>
+          <input
+            type="radio"
+            id="dog-selected"
+            name="player-selection"
+            value="dog"
+          />
+          <label for="dog-selected">Dog</label><br />
+          <input
+            type="radio"
+            id="car-selected"
+            name="player-selection"
+            value="cat"
+          />
+          <label for="car-selected">Cat</label><br />
+          <!-- idea: "Pets go!" -->
+          <button id="start-button">Start Game</button>
+        </form>
+      </div>
 
-    <!-- GAME SCREEN -->
-    <!-- to-do: add lives and time (Reference chronometer) -->
-    <!-- TBD -> do we also have score or longest time? -->
-    <div id="game-screen"></div>
+      <!-- GAME CONTAINER -->
+      <!-- to-do: add lives and time (Reference chronometer) -->
+      <!-- TBD: do we also have score or longest time? -->
+      <div id="game-container">
+        <!-- Score -->
+        <!-- TBD: Score behavior. 3 hearts? If so, array of lives? -->
+        <div id="score">
+          <p>Lives: <span id="lives">3</span></p>
+          <p>Time Elapsed: <span id="time">00:00</span></p>
+        </div>
 
-    <!-- END SCREEN -->
-    <!-- will show scoreboard & restart button?-->
-    <!-- TBD -> we also want users' name? -->
-    <div id="end-screen"></div>
+        <!-- Game Screen -->
+        <div id="game-screen"></div>
+      </div>
+
+      <!-- END SCREEN -->
+      <!-- will show scoreboard & restart button?-->
+      <!-- TBD: we also want users' name? -->
+      <div id="end-screen">
+        <h1 class="title">Game Over</h1>
+        <h2 class="subtitle">Your score was</h2>
+        <p id="final-score">00:00</p>
+        <h2 class="subtitle">Leaderboard</h2>
+        <ol id="leaderboard">
+          <li>AAA</li>
+          <li>AAA</li>
+          <li>AAA</li>
+          <li>AAA</li>
+          <li>AAA</li>
+          <li>AAA</li>
+          <li>AAA</li>
+          <li>AAA</li>
+          <li>AAA</li>
+          <li>AAA</li>
+        </ol>
+        <button id="restart-button">Play Again</button>
+      </div>
+    </main>
+
+    <script type="text/javascript" src="js/obstacles.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>
