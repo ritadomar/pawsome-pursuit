@@ -1,5 +1,6 @@
 class Player {
-  constructor(gameScreen, left, top, width, height, imgSrc) {
+  constructor(playerType, gameScreen, left, top, width, height, imgSrc) {
+    this.playerType = playerType;
     this.gameScreen = gameScreen;
     this.left = left;
     this.top = top;
