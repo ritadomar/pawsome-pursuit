@@ -1,0 +1,10 @@
+/* INTRO SCREEN */
+/* GAME CONTAINER */
+#game-container {
+  display: none;
+}
+
+/* END SCREEN */
+#end-screen {
+  display: none;
+}
