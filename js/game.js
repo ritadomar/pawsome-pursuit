@@ -3,7 +3,7 @@ class Game {
   constructor(playerType) {
     // screens setup
     this.startScreen = document.getElementById('start-screen');
-    this.gameScreen = document.getElementById('game-container');
+    this.gameScreen = document.getElementById('game-screen');
     this.endScreen = document.getElementById('end-screen');
     this.height = 540; // adjust the numbers
     this.width = 820; // adjust the numbers
@@ -19,9 +19,16 @@ class Game {
       imgSrc // add image
     ); // adjust the numbers
 
-    // starting obstacles
-    this.friends = [];
-    this.foes = [];
+    // starting obstacles - 2 friends, 3 foes
+    this.friends = [
+      new Obstacle(this.gameScreen, 'friend'),
+      new Obstacle(this.gameScreen, 'friend'),
+    ];
+    this.foes = [
+      new Obstacle(this.gameScreen, 'foe'),
+      new Obstacle(this.gameScreen, 'foe'),
+      new Obstacle(this.gameScreen, 'foe'),
+    ];
 
     // starting stats
     this.currentTime = 0;
@@ -62,6 +69,7 @@ class Game {
     this.player.move();
 
     // function to add more obstacles to the screen
+    this.intervalId = setInterval(() => {}, 3000);
 
     // call function to collide & outcomes
 
@@ -74,6 +82,8 @@ class Game {
     this.obstacles.forEach(obstacle => obstacle.element.remove());
 
     this.isGameOver = true;
+
+    // stop obstacle creation
 
     // hide the game screen and show the end screen
     this.gameScreen.style.display = 'none';
