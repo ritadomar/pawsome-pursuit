@@ -11,20 +11,28 @@ class Player {
     this.directionX = 0; // -1 left, 0 still, 1 right
     this.directionY = 0; // -1 top, 0 still, 1 bottom
 
-    // callback function to add player
-    this.addPlayer(playerType);
+    // adding images to the class
+    this.dogImage = './img/player/dog-cake.gif';
+    this.catImage = './img/player/taco_cat.png';
 
     // DOM manipulation: to insert the player in the screen
     this.element = document.createElement('img');
+
+    // callback function to add player
+    this.addPlayer(playerType);
   }
 
   // to add the player to the screen
   addPlayer(playerType) {
+    let imgSrc;
     if (playerType === 'dog') {
-      this.element.src = './img/dog-cake.gif';
+      imgSrc = this.dogImage;
     } else if (playerType === 'cat') {
-      this.element.src === 'cat';
+      imgSrc = this.catImage;
     }
+
+    console.log(imgSrc);
+    this.element.src = imgSrc;
     this.element.style.position = 'absolute';
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.height}px`;
