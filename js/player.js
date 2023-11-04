@@ -25,9 +25,9 @@ class Player {
   // to add the player to the screen
   addPlayer(playerType) {
     let imgSrc;
-    if (playerType === 'dog') {
+    if ((playerType = 'dog')) {
       imgSrc = this.dogImage;
-    } else if (playerType === 'cat') {
+    } else if ((playerType = 'cat')) {
       imgSrc = this.catImage;
     }
 

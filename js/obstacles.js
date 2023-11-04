@@ -54,6 +54,7 @@ class Obstacle {
           this.dogImages[Math.floor(Math.random() * this.dogImages.length)];
       }
     }
+
     this.element.src = imgSrc;
     this.element.style.position = 'absolute';
     this.element.style.width = `${this.width}px`;
