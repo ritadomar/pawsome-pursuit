@@ -10,7 +10,8 @@ class Game {
     this.width = 70; // adjust the numbers
 
     // create player
-    this.player = new Player(playerType, this.gameScreen, 200, 500, 50, 50); // adjust the numbers
+    this.player = new Player(playerType, this.gameScreen, 50, 50); // adjust the numbers
+    console.log(this.player);
 
     // starting obstacles - 2 friends, 3 foes
     this.allObstacles = [
