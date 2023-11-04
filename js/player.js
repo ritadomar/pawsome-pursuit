@@ -4,8 +4,8 @@ class Player {
     this.gameScreen = gameScreen;
     this.width = width;
     this.height = height;
-    this.top = 50;
-    this.left = 50;
+    this.top = (document.documentElement.clientHeight * 0.7) / 2 - height / 2;
+    this.left = (document.documentElement.clientWidth * 0.7) / 2 - width / 2;
 
     // to control direction movements
     this.directionX = 0; // -1 left, 0 still, 1 right
@@ -35,8 +35,8 @@ class Player {
     this.element.style.position = 'absolute';
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.height}px`;
-    this.element.style.left = `${this.left}%`;
-    this.element.style.top = `${this.top}%`;
+    this.element.style.left = `${this.left}px`;
+    this.element.style.top = `${this.top}px`;
     this.gameScreen.appendChild(this.element);
   }
 
@@ -78,8 +78,8 @@ class Player {
 
   // DOM manipulation: to update the player position
   updatePosition() {
-    this.element.style.left = `${this.left}%`;
-    this.element.style.top = `${this.top}%`;
+    this.element.style.left = `${this.left}px`;
+    this.element.style.top = `${this.top}px`;
   }
 
   // to collide the player & obstacle
