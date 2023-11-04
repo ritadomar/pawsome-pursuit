@@ -3,10 +3,11 @@ class Obstacle {
     this.gameScreen = gameScreen;
 
     this.type = type; // will be friend or foe, this will determine image added
+    this.playerType = playerType;
 
     // if we decide on multiple sprites for obstacles
-    this.dogImages = ['./img/obstacle/mermaid_dog.gif'];
-    this.catImages = ['./img/obstacle/sadnyancat.gif'];
+    this.dogImages = './img/obstacle/mermaid_dog.gif';
+    this.catImages = './img/obstacle/sadnyancat.gif';
 
     // TBD: double check random position - currently copied from race-car
     this.left = Math.floor(Math.random() * 300 + 70);
@@ -28,7 +29,7 @@ class Obstacle {
     // TBD: generating image based on player type
     // if document.game.player.type = "dog" -> imgSrc = so, so and so
     // else if document.game.player.type = "cat" -> imgSrc = so, so and so
-    this.addObstacle(playerType, type);
+    this.addObstacle(this.playerType, this.type);
 
     // method will randomize the direction so obstacles will move in different directions the moment they are created
     this.randomizeDirection();
@@ -39,19 +40,15 @@ class Obstacle {
     let imgSrc;
     if (playerType === 'dog') {
       if (type === 'friend') {
-        imgSrc =
-          this.dogImages[Math.floor(Math.random() * this.dogImages.length)];
+        imgSrc = this.dogImages;
       } else if (type === 'foe') {
-        imgSrc =
-          this.catImages[Math.floor(Math.random() * this.catImages.length)];
+        imgSrc = this.catImages;
       }
     } else if (playerType === 'cat') {
       if (type === 'friend') {
-        imgSrc =
-          this.catImages[Math.floor(Math.random() * this.catImages.length)];
+        imgSrc = this.catImages;
       } else if (type === 'foe') {
-        imgSrc =
-          this.dogImages[Math.floor(Math.random() * this.dogImages.length)];
+        imgSrc = this.dogImages;
       }
     }
 

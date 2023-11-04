@@ -4,15 +4,17 @@ window.onload = function () {
   const startButton = document.querySelector('#start-button');
   const playerSelector = document.querySelectorAll('.player-selector');
   const restartButton = document.getElementById('restart-button');
-  let type;
+  let type = 'dog';
 
   // we may need a start game button to start the game separate from the player selection
-  playerSelector.forEach(button => {
-    button.addEventListener('click', function () {
-      type = button.getAttribute('id');
-    });
-  });
+  // playerSelector.forEach(button => {
+  //   button.addEventListener('click', () => {
+  //     type = button.getAttribute('id');
+  //     return type;
+  //   });
+  // });
 
+  console.log(type);
   const game = new Game(type);
 
   startButton.addEventListener('click', () => {
