@@ -23,7 +23,7 @@ class Game {
     ];
 
     // starting stats
-    this.currentTime = 0;
+    this.time = 0;
     this.lives = 3;
 
     // to check if game is over
@@ -41,6 +41,9 @@ class Game {
 
     // what makes the game run over and over again
     this.gameLoop();
+
+    // start the timer
+    this.startTimer();
   }
 
   gameLoop() {
@@ -48,6 +51,9 @@ class Game {
     if (this.isGameOver) {
       return;
     }
+
+    this.getMinutes();
+    this.getSeconds();
 
     this.update();
     this.updateStats();
@@ -111,8 +117,8 @@ class Game {
       this.allObstacles.push(newObstacle);
       console.log('adding obstacle');
     }
-    // call end game function
 
+    // call end game function
     if (this.lives === 0) {
       this.endGame();
     }
@@ -125,11 +131,12 @@ class Game {
 
     this.isGameOver = true;
 
-    // stop obstacle creation
-
     // hide the game screen and show the end screen
     this.gameContainer.style.display = 'none';
     this.endScreen.style.display = 'block';
+
+    // stop time counting
+    this.stopTimer();
   }
 
   updateStats() {
@@ -137,9 +144,42 @@ class Game {
     const lives = document.getElementById('lives');
     const time = document.getElementById('time');
     lives.innerText = this.lives;
-    time.innerText = this.currentTime;
+    time.innerText = `${this.timeInMinutes}:${this.timeInSeconds}`;
   }
 
   // function to count time
-  timer() {}
+  startTimer() {
+    this.intervalId = setInterval(() => {
+      // increment the time by 1 second
+      this.time += 1;
+    }, 1000);
+
+    return this.time;
+  }
+
+  getMinutes() {
+    this.minutes = Math.floor(this.time / 60);
+    return (this.timeInMinutes = this.computeTwoDigitNumber(this.minutes));
+  }
+
+  getSeconds() {
+    this.remainingSeconds = Math.floor(this.time % 60);
+    return (this.timeInSeconds = this.computeTwoDigitNumber(
+      this.remainingSeconds
+    ));
+  }
+
+  computeTwoDigitNumber(value) {
+    // convert any number into a two-digits string representation
+    if (value < 10) {
+      return '0' + value.toString();
+    } else {
+      return value.toString();
+    }
+  }
+
+  stopTimer() {
+    // clear the existing interval timer
+    clearInterval(this.intervalId);
+  }
 }
