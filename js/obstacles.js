@@ -10,8 +10,12 @@ class Obstacle {
     this.catImages = './img/obstacle/sadnyancat.gif';
 
     // TBD: double check random position - currently copied from race-car
-    this.left = Math.floor(Math.random() * 300 + 70);
-    this.top = Math.floor(Math.random() * 300 + 70);
+    this.left = Math.floor(
+      Math.random() * (document.documentElement.clientWidth * 0.7)
+    );
+    this.top = Math.floor(
+      Math.random() * (document.documentElement.clientHeight * 0.7)
+    );
 
     // obstacles will also move, but automatically, will be randomized between 1 or -1
     this.directions = [1, -1];
@@ -25,13 +29,13 @@ class Obstacle {
     // method will randomize the direction so obstacles will move in different directions the moment they are created
     this.randomizeDirection();
 
+    // this will make sure the obstacles are not created in the same space as the player
+    this.randomizePlacement();
+
     // creating obstacle on the screen
     this.element = document.createElement('img');
 
-    // giving it an image
-    // TBD: generating image based on player type
-    // if document.game.player.type = "dog" -> imgSrc = so, so and so
-    // else if document.game.player.type = "cat" -> imgSrc = so, so and so
+    // creating an obstacle depending on player type and type
     this.addObstacle(this.playerType, this.type);
   }
 
@@ -105,5 +109,30 @@ class Obstacle {
   randomizeDirection() {
     this.directionX = this.directions[Math.floor(Math.random() * 2)];
     this.directionY = this.directions[Math.floor(Math.random() * 2)];
+  }
+
+  randomizePlacement() {
+    const rightMaxValue =
+      this.gameScreen.offsetWidth - this.gameScreen.offsetWidth * 0.3;
+    const bottomMaxValue =
+      this.gameScreen.offsetHeight - this.gameScreen.offsetHeight * 0.3;
+
+    if (
+      this.left > this.gameScreen.offsetWidth * 0.3 &&
+      this.left < rightMaxValue
+    ) {
+      this.left = Math.floor(
+        Math.random() * (document.documentElement.clientWidth * 0.7)
+      );
+    }
+
+    if (
+      this.top < this.gameScreen.offsetHeight * 0.3 &&
+      this.top < bottomMaxValue
+    ) {
+      this.top = Math.floor(
+        Math.random() * (document.documentElement.clientHeight * 0.7)
+      );
+    }
   }
 }

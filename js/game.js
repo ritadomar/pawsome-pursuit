@@ -11,7 +11,6 @@ class Game {
 
     // create player
     this.player = new Player(playerType, this.gameScreen, 50, 50); // adjust the numbers
-    console.log(this.player);
 
     // starting obstacles - 2 friends, 3 foes
     this.allObstacles = [
@@ -68,7 +67,7 @@ class Game {
 
     this.allObstacles.forEach((obstacle, index) => {
       // call obstacles move function
-      obstacle.move();
+      // obstacle.move();
 
       // call collision function
       if (this.player.didCollide(obstacle)) {
@@ -102,8 +101,7 @@ class Game {
       );
       // add new obstacle to array of obstacles
       this.allObstacles.push(newObstacle);
-      console.log('adding obstacle');
-    } else if (Math.random() > 0.997777 && this.allObstacles.length >= 5) {
+    } else if (Math.random() > 0.8 && this.allObstacles.length >= 5) {
       // randomize obstacle type
       let selectedObstacle = obstacleTypes[Math.floor(Math.random() * 2)];
 
@@ -115,7 +113,6 @@ class Game {
       );
       // add new obstacle to array of obstacles
       this.allObstacles.push(newObstacle);
-      console.log('adding obstacle');
     }
 
     // call end game function
