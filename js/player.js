@@ -19,7 +19,7 @@ class Player {
     this.element = document.createElement('img');
 
     // callback function to add player
-    this.addPlayer(playerType);
+    this.addPlayer(this.playerType);
   }
 
   // to add the player to the screen
@@ -31,7 +31,6 @@ class Player {
       imgSrc = this.catImage;
     }
 
-    console.log(imgSrc);
     this.element.src = imgSrc;
     this.element.style.position = 'absolute';
     this.element.style.width = `${this.width}px`;

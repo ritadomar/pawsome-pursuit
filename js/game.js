@@ -13,13 +13,13 @@ class Game {
 
     // starting obstacles - 2 friends, 3 foes
     this.friends = [
-      new Obstacle(this.gameScreen, 'friend'),
-      new Obstacle(this.gameScreen, 'friend'),
+      new Obstacle(this.gameScreen, 'friend', this.player.playerType),
+      new Obstacle(this.gameScreen, 'friend', this.player.playerType),
     ];
     this.foes = [
-      new Obstacle(this.gameScreen, 'foe'),
-      new Obstacle(this.gameScreen, 'foe'),
-      new Obstacle(this.gameScreen, 'foe'),
+      new Obstacle(this.gameScreen, 'foe', this.player.playerType),
+      new Obstacle(this.gameScreen, 'foe', this.player.playerType),
+      new Obstacle(this.gameScreen, 'foe', this.player.playerType),
     ];
 
     // starting stats
