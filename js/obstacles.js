@@ -19,8 +19,8 @@ class Obstacle {
     this.directionY = null; // -1 top, 1 bottom
 
     // assuming square obstacle for now
-    this.width = 100;
-    this.height = 100;
+    this.width = 50;
+    this.height = 50;
 
     // method will randomize the direction so obstacles will move in different directions the moment they are created
     this.randomizeDirection();
@@ -58,6 +58,7 @@ class Obstacle {
     this.element.style.height = `${this.height}px`;
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
+    // this.element.style.backgroundColor = 'red';
     this.gameScreen.appendChild(this.element);
   }
 
@@ -67,24 +68,28 @@ class Obstacle {
     this.top += this.directionY;
 
     // using similar condition to avoid player leaving the canvas, but to randomize the direction
-    if (this.left < 25) {
+    if (this.left < 10) {
+      this.left = 10;
       this.randomizeDirection();
     }
 
     // top side
     if (this.top < 10) {
+      this.top = 10;
       this.randomizeDirection();
     }
 
     // right side
-    const rightMaxValue = this.gameScreen.offsetWidth - this.width - 25;
+    const rightMaxValue = this.gameScreen.offsetWidth - this.width - 10;
     if (this.left > rightMaxValue) {
+      this.left = rightMaxValue;
       this.randomizeDirection();
     }
 
     // bottom side
     const bottomMaxValue = this.gameScreen.offsetHeight - this.height - 10;
     if (this.top > bottomMaxValue) {
+      this.top = bottomMaxValue;
       this.randomizeDirection();
     }
 

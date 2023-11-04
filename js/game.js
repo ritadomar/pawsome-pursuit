@@ -6,11 +6,11 @@ class Game {
     this.gameScreen = document.getElementById('game-screen');
     this.gameContainer = document.getElementById('game-container');
     this.endScreen = document.getElementById('end-screen');
-    this.height = 540; // adjust the numbers
-    this.width = 820; // adjust the numbers
+    this.height = 70; // adjust the numbers
+    this.width = 70; // adjust the numbers
 
     // create player
-    this.player = new Player(playerType, this.gameScreen, 200, 500, 100, 150); // adjust the numbers
+    this.player = new Player(playerType, this.gameScreen, 200, 500, 50, 50); // adjust the numbers
 
     // starting obstacles - 2 friends, 3 foes
     this.allObstacles = [
@@ -31,8 +31,8 @@ class Game {
 
   start() {
     // setting the game screen size
-    this.gameScreen.style.height = `${this.height}px`;
-    this.gameScreen.style.width = `${this.width}px`;
+    this.gameScreen.style.height = `${this.height}vh`;
+    this.gameScreen.style.width = `${this.width}vw`;
 
     // hiding the start screen and showing the game screen
     this.startScreen.style.display = 'none';
@@ -95,6 +95,7 @@ class Game {
       );
       // add new obstacle to array of obstacles
       this.allObstacles.push(newObstacle);
+      console.log('adding obstacle');
     } else if (Math.random() > 0.997777 && this.allObstacles.length >= 5) {
       // randomize obstacle type
       let selectedObstacle = obstacleTypes[Math.floor(Math.random() * 2)];
@@ -107,14 +108,19 @@ class Game {
       );
       // add new obstacle to array of obstacles
       this.allObstacles.push(newObstacle);
+      console.log('adding obstacle');
     }
     // call end game function
+
+    if (this.lives === 0) {
+      this.endGame();
+    }
   }
 
   endGame() {
     // remove all elements from the screen
     this.player.element.remove();
-    this.obstacles.forEach(obstacle => obstacle.element.remove());
+    this.allObstacles.forEach(obstacle => obstacle.element.remove());
 
     this.isGameOver = true;
 

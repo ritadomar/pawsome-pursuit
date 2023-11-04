@@ -4,6 +4,11 @@
   display: none;
 }
 
+#game-screen {
+  background-color: aqua;
+  position: relative;
+}
+
 /* END SCREEN */
 #end-screen {
   display: none;

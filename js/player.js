@@ -49,8 +49,8 @@ class Player {
     // preventing the player from leaving the game screen
     // TO-DO: REVIEW THE NUMBERS
     // left side
-    if (this.left < 25) {
-      this.left = 25;
+    if (this.left < 10) {
+      this.left = 10;
     }
 
     // top side
@@ -59,14 +59,16 @@ class Player {
     }
 
     // right side
-    const rightMaxValue = this.gameScreen.offsetWidth - this.width - 25;
-    if (this.left > rightMaxValue) {
+    const rightMaxValue = this.gameScreen.offsetWidth - this.width - 10;
+
+    if (this.left >= rightMaxValue) {
       this.left = rightMaxValue;
     }
 
     // bottom side
     const bottomMaxValue = this.gameScreen.offsetHeight - this.height - 10;
-    if (this.top > bottomMaxValue) {
+
+    if (this.top >= bottomMaxValue) {
       this.top = bottomMaxValue;
     }
 
