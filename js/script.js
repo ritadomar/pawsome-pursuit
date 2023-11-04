@@ -1,18 +1,23 @@
 // delays the JS from running straight away!
 // imagine the website has very heavy images. we have a safekeep below to allow the website to load first and the JS to run next
 window.onload = function () {
-  const startButtons = document.querySelectorAll('.start-button');
+  const startButton = document.querySelector('#start-button');
+  const playerSelector = document.querySelectorAll('.player-selector');
   const restartButton = document.getElementById('restart-button');
   let type;
 
-  startButtons.forEach(button => {
+  // we may need a start game button to start the game separate from the player selection
+  playerSelector.forEach(button => {
     button.addEventListener('click', function () {
       type = button.getAttribute('id');
-      startGame();
     });
   });
 
   const game = new Game(type);
+
+  startButton.addEventListener('click', () => {
+    startGame();
+  });
 
   function startGame() {
     console.log('start game');

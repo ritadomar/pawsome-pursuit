@@ -1,5 +1,5 @@
 class Player {
-  constructor(playerType, gameScreen, left, top, width, height, imgSrc) {
+  constructor(playerType, gameScreen, left, top, width, height) {
     this.playerType = playerType;
     this.gameScreen = gameScreen;
     this.left = left;
@@ -12,15 +12,19 @@ class Player {
     this.directionY = 0; // -1 top, 0 still, 1 bottom
 
     // callback function to add player
-    this.addPlayer(imgSrc);
+    this.addPlayer(playerType);
 
     // DOM manipulation: to insert the player in the screen
     this.element = document.createElement('img');
   }
 
   // to add the player to the screen
-  addPlayer(imgSrc) {
-    this.element.src = imgSrc;
+  addPlayer(playerType) {
+    if (playerType === 'dog') {
+      this.element.src = './img/dog-cake.gif';
+    } else if (playerType === 'cat') {
+      this.element.src === 'cat';
+    }
     this.element.style.position = 'absolute';
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.height}px`;

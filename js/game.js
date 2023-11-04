@@ -9,15 +9,7 @@ class Game {
     this.width = 820; // adjust the numbers
 
     // create player
-    this.player = new Player(
-      playerType,
-      this.gameScreen,
-      200,
-      500,
-      100,
-      150,
-      imgSrc // add image
-    ); // adjust the numbers
+    this.player = new Player(playerType, this.gameScreen, 200, 500, 100, 150); // adjust the numbers
 
     // starting obstacles - 2 friends, 3 foes
     this.friends = [
