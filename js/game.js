@@ -13,19 +13,13 @@ class Game {
     this.player = new Player(playerType, this.gameScreen, 200, 500, 100, 150); // adjust the numbers
 
     // starting obstacles - 2 friends, 3 foes
-    this.friends = [
+    this.allObstacles = [
+      new Obstacle(this.gameScreen, 'foe', this.player.playerType),
+      new Obstacle(this.gameScreen, 'foe', this.player.playerType),
+      new Obstacle(this.gameScreen, 'foe', this.player.playerType),
       new Obstacle(this.gameScreen, 'friend', this.player.playerType),
       new Obstacle(this.gameScreen, 'friend', this.player.playerType),
     ];
-    this.foes = [
-      new Obstacle(this.gameScreen, 'foe', this.player.playerType),
-      new Obstacle(this.gameScreen, 'foe', this.player.playerType),
-      new Obstacle(this.gameScreen, 'foe', this.player.playerType),
-    ];
-
-    this.allObstacles = [];
-    this.getObstacles();
-    console.log(this.allObstacles);
 
     // starting stats
     this.currentTime = 0;
@@ -33,16 +27,6 @@ class Game {
 
     // to check if game is over
     this.isGameOver = false;
-  }
-
-  getObstacles() {
-    this.friends.forEach(friend => {
-      this.allObstacles.push(friend);
-    });
-
-    this.foes.forEach(foe => {
-      this.allObstacles.push(foe);
-    });
   }
 
   start() {
@@ -98,10 +82,32 @@ class Game {
     });
 
     // function to add more obstacles to the screen
-    this.intervalId = setInterval(() => {}, 3000);
+    const obstacleTypes = ['friend', 'foe'];
+    if (this.allObstacles.length < 5) {
+      // randomize obstacle type
+      let selectedObstacle = obstacleTypes[Math.floor(Math.random() * 2)];
 
-    // call function to collide & outcomes
+      // create a new obstacle - cat or dog
+      let newObstacle = new Obstacle(
+        this.gameScreen,
+        selectedObstacle,
+        this.player.playerType
+      );
+      // add new obstacle to array of obstacles
+      this.allObstacles.push(newObstacle);
+    } else if (Math.random() > 0.997777 && this.allObstacles.length >= 5) {
+      // randomize obstacle type
+      let selectedObstacle = obstacleTypes[Math.floor(Math.random() * 2)];
 
+      // create a new obstacle - cat or dog
+      let newObstacle = new Obstacle(
+        this.gameScreen,
+        selectedObstacle,
+        this.player.playerType
+      );
+      // add new obstacle to array of obstacles
+      this.allObstacles.push(newObstacle);
+    }
     // call end game function
   }
 
