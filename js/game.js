@@ -134,6 +134,9 @@ class Game {
 
     // stop time counting
     this.stopTimer();
+
+    const finalScore = document.getElementById('final-score');
+    finalScore.innerText = `${this.timeInMinutes}:${this.timeInSeconds}`;
   }
 
   updateStats() {
