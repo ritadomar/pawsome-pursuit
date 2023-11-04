@@ -22,6 +22,9 @@ class Obstacle {
     this.width = 100;
     this.height = 100;
 
+    // method will randomize the direction so obstacles will move in different directions the moment they are created
+    this.randomizeDirection();
+
     // creating obstacle on the screen
     this.element = document.createElement('img');
 
@@ -30,9 +33,6 @@ class Obstacle {
     // if document.game.player.type = "dog" -> imgSrc = so, so and so
     // else if document.game.player.type = "cat" -> imgSrc = so, so and so
     this.addObstacle(this.playerType, this.type);
-
-    // method will randomize the direction so obstacles will move in different directions the moment they are created
-    this.randomizeDirection();
   }
 
   // FINISH ADD OBSTACLE

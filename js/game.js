@@ -4,6 +4,7 @@ class Game {
     // screens setup
     this.startScreen = document.getElementById('start-screen');
     this.gameScreen = document.getElementById('game-screen');
+    this.gameContainer = document.getElementById('game-container');
     this.endScreen = document.getElementById('end-screen');
     this.height = 540; // adjust the numbers
     this.width = 820; // adjust the numbers
@@ -22,12 +23,26 @@ class Game {
       new Obstacle(this.gameScreen, 'foe', this.player.playerType),
     ];
 
+    this.allObstacles = [];
+    this.getObstacles();
+    console.log(this.allObstacles);
+
     // starting stats
     this.currentTime = 0;
     this.lives = 3;
 
     // to check if game is over
     this.isGameOver = false;
+  }
+
+  getObstacles() {
+    this.friends.forEach(friend => {
+      this.allObstacles.push(friend);
+    });
+
+    this.foes.forEach(foe => {
+      this.allObstacles.push(foe);
+    });
   }
 
   start() {
@@ -37,7 +52,7 @@ class Game {
 
     // hiding the start screen and showing the game screen
     this.startScreen.style.display = 'none';
-    this.gameScreen.style.display = 'block';
+    this.gameContainer.style.display = 'block';
 
     // what makes the game run over and over again
     this.gameLoop();
@@ -60,6 +75,28 @@ class Game {
     // call player move function
     this.player.move();
 
+    this.allObstacles.forEach((obstacle, index) => {
+      // call obstacles move function
+      obstacle.move();
+
+      // call collision function
+      if (this.player.didCollide(obstacle)) {
+        // remove obstacle from the screen/DOM
+        obstacle.element.remove();
+
+        // remove obstacle from the obstacles array
+        this.allObstacles.splice(index, 1);
+
+        if (obstacle.type === 'friend') {
+          // adds lives
+          this.lives++; // ADD LOGIC TO GROW PLAYER
+        } else if (obstacle.type === 'foe') {
+          // reduce the lives by 1
+          this.lives--;
+        }
+      }
+    });
+
     // function to add more obstacles to the screen
     this.intervalId = setInterval(() => {}, 3000);
 
@@ -78,7 +115,7 @@ class Game {
     // stop obstacle creation
 
     // hide the game screen and show the end screen
-    this.gameScreen.style.display = 'none';
+    this.gameContainer.style.display = 'none';
     this.endScreen.style.display = 'block';
   }
 
