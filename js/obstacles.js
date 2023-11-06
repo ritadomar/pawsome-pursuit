@@ -9,11 +9,11 @@ class Obstacle {
     this.dogImages = './img/obstacle/mermaid_dog.gif';
     this.catImages = './img/obstacle/sadnyancat.gif';
 
-    // TBD: double check random position - currently copied from race-car
-    // this.top = Math.floor(Math.random() * this.gameScreen.offsetHeight);
-    // this.left = null;
-    this.left = null;
-    this.top = null;
+    // TBD: double check random position
+    this.left = Math.floor(
+      Math.random() * document.documentElement.clientWidth * 0.7
+    );
+    this.top = this.randomizePlacement();
 
     // obstacles will also move, but automatically, will be randomized between 1 or -1
     this.directions = [1, -1];
@@ -108,27 +108,29 @@ class Obstacle {
 
   randomizePlacement() {
     // randomized the left position
-    this.left = Math.floor(Math.random() * this.gameScreen.offsetWidth);
+    // this.left = Math.floor(Math.random() * this.gameScreen.offsetWidth);
 
     // depending on left position, generates top value to avoid creating obstacles near player
     if (
       this.left < this.gameScreen.offsetWidth * 0.3 ||
       this.left > this.gameScreen.offsetWidth * 0.7
     ) {
-      this.top = Math.floor(Math.random() * this.gameScreen.offsetHeight);
+      return Math.floor(
+        Math.random() * document.documentElement.clientHeight * 0.7
+      );
     } else {
-      this.randomizeTop();
+      return this.randomizeTop();
     }
   }
 
   randomizeTop() {
-    let min = this.gameScreen.offsetHeight * 0.8;
-    let max = this.gameScreen.offsetHeight;
+    let min = document.documentElement.clientHeight * 0.7 * 0.8;
+    let max = document.documentElement.clientHeight * 0.7;
     let topOptions = [
       Math.floor(Math.random() * (max - min) + min),
       Math.floor(Math.random() * (max * 0.2)),
     ];
 
-    this.top = topOptions[Math.floor(Math.random() * 2)];
+    return topOptions[Math.floor(Math.random() * 2)];
   }
 }

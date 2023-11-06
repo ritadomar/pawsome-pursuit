@@ -24,6 +24,7 @@ class Game {
     // starting stats
     this.time = 0;
     this.lives = 3;
+    this.score = 0;
 
     // to check if game is over
     this.isGameOver = false;
@@ -37,11 +38,6 @@ class Game {
     // hiding the start screen and showing the game screen
     this.startScreen.style.display = 'none';
     this.gameContainer.style.display = 'block';
-
-    // this will make sure the obstacles are not created in the same space as the player
-    this.allObstacles.forEach(obstacle => {
-      obstacle.randomizePlacement();
-    });
 
     // what makes the game run over and over again
     this.gameLoop();
@@ -83,8 +79,10 @@ class Game {
         this.allObstacles.splice(index, 1);
 
         if (obstacle.type === 'friend') {
-          // adds lives
-          this.lives++; // ADD LOGIC TO GROW PLAYER
+          // adds score
+          this.score += 100;
+          // ADD LOGIC TO GROW PLAYER
+          this.player.grow();
         } else if (obstacle.type === 'foe') {
           // reduce the lives by 1
           this.lives--;
@@ -104,9 +102,12 @@ class Game {
         selectedObstacle,
         this.player.playerType
       );
+
+      newObstacle.randomizePlacement();
+
       // add new obstacle to array of obstacles
       this.allObstacles.push(newObstacle);
-    } else if (Math.random() > 0.99777 && this.allObstacles.length >= 5) {
+    } else if (Math.random() > 0.99 && this.allObstacles.length >= 5) {
       // randomize obstacle type
       let selectedObstacle = obstacleTypes[Math.floor(Math.random() * 2)];
 
@@ -116,6 +117,9 @@ class Game {
         selectedObstacle,
         this.player.playerType
       );
+
+      newObstacle.randomizePlacement();
+
       // add new obstacle to array of obstacles
       this.allObstacles.push(newObstacle);
     }
@@ -148,8 +152,10 @@ class Game {
     // update inner texts of Stats
     const lives = document.getElementById('lives');
     const time = document.getElementById('time');
+    const score = document.getElementById('score');
     lives.innerText = this.lives;
     time.innerText = `${this.timeInMinutes}:${this.timeInSeconds}`;
+    score.innerText = this.score;
   }
 
   // function to count time

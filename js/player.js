@@ -43,8 +43,8 @@ class Player {
   // to move the player
   move() {
     // update the player position
-    this.left += this.directionX;
-    this.top += this.directionY;
+    this.left += this.directionX * 1.2;
+    this.top += this.directionY * 1.2;
 
     // preventing the player from leaving the game screen
     // TO-DO: REVIEW THE NUMBERS
@@ -99,7 +99,13 @@ class Player {
     } else {
       return false;
     }
+  }
 
-    // note: the logic for loosing lives or eating friends is in the game.js
+  grow() {
+    this.width *= 1.1;
+    this.height *= 1.1;
+
+    this.element.style.width = `${this.width}px`;
+    this.element.style.height = `${this.height}px`;
   }
 }
