@@ -38,6 +38,11 @@ class Game {
     this.startScreen.style.display = 'none';
     this.gameContainer.style.display = 'block';
 
+    // this will make sure the obstacles are not created in the same space as the player
+    this.allObstacles.forEach(obstacle => {
+      obstacle.randomizePlacement();
+    });
+
     // what makes the game run over and over again
     this.gameLoop();
 
@@ -67,7 +72,7 @@ class Game {
 
     this.allObstacles.forEach((obstacle, index) => {
       // call obstacles move function
-      // obstacle.move();
+      obstacle.move();
 
       // call collision function
       if (this.player.didCollide(obstacle)) {
@@ -101,7 +106,7 @@ class Game {
       );
       // add new obstacle to array of obstacles
       this.allObstacles.push(newObstacle);
-    } else if (Math.random() > 0.8 && this.allObstacles.length >= 5) {
+    } else if (Math.random() > 0.99777 && this.allObstacles.length >= 5) {
       // randomize obstacle type
       let selectedObstacle = obstacleTypes[Math.floor(Math.random() * 2)];
 
