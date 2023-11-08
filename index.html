@@ -9,15 +9,16 @@
   <body>
     <main>
       <!-- INTRO SCREEN -->
-      <div id="start-screen">
+      <div id="start-screen" class="board big">
         <h1 class="title">Pawsome Pursuit</h1>
+        <img src="./img/logo.png" alt="Pawsome Pursuit" class="logo" />
         <h2 class="subtitle">Pick your player:</h2>
         <button id="dog" class="player-selector primary">
           <img src="./img/player/dog-player-right.gif" alt="Dog player image" />
           Dog
         </button>
         <button id="cat" class="player-selector primary">
-          <img src="./img/player/dog-player-right.gif" alt="Cat player image" />
+          <img src="./img/player/cat-player-right.gif" alt="Cat player image" />
           Cat
         </button>
         <!-- <button id="start-button">Start Game</button> -->
@@ -26,6 +27,7 @@
       <!-- GAME CONTAINER -->
       <div id="game-container">
         <h1 class="title">Pawsome Pursuit</h1>
+        <img src="./img/logo.png" alt="Pawsome Pursuit" class="logo game" />
         <!-- Score -->
         <div id="stats">
           <p>Lives: <span id="lives">3</span></p>
@@ -38,13 +40,14 @@
       </div>
 
       <!-- END SCREEN -->
-      <div id="end-screen">
+      <div id="end-screen" class="board big">
         <h1 class="title">Pawsome Pursuit</h1>
+        <img src="./img/logo.png" alt="Pawsome Pursuit" class="logo" />
         <h2 class="subtitle">Game Over</h2>
         <h3>Your time was</h3>
         <p id="final-score">00:00</p>
 
-        <button id="restart-button primary">Play Again</button>
+        <button id="restart-button" class="primary">Play Again</button>
       </div>
     </main>
 

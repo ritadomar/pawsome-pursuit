@@ -26,6 +26,49 @@
   padding: 0;
 }
 
+/* MAIN */
+main {
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url('../img/floor/grass-animated.gif');
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--pixel);
+}
+
+/* BOARD SCREENS */
+.board {
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--brown);
+  border: 4px solid var(--yellow);
+  box-shadow: var(--board-shadow);
+}
+
+.big {
+  width: 70vw;
+  height: 70vh;
+
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 56px 206px;
+}
+
+.small {
+  gap: 8px;
+  padding: 16px 16px 13px 16px;
+}
+
 /* BUTTONS */
 .primary {
   display: flex;
@@ -51,6 +94,30 @@
   width: 50px;
 }
 
+/* TITLES */
+.title {
+  /* hiding h1 in an accessible way */
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -10000px;
+  top: -10000px;
+}
+
+.subtitle {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* LOGO */
+.logo {
+  height: 20vh;
+
+  position: absolute;
+
+  top: 5vh;
+}
+
 /* INTRO SCREEN */
 /* GAME CONTAINER */
 #game-container {
@@ -58,8 +125,14 @@
 }
 
 #game-screen {
-  background-color: aqua;
   position: relative;
+
+  /* source | slice | width | outset | repeat */
+  border-image-source: url('../img/floor/game-floor2.jpg');
+  border-image-slice: 40 fill;
+  border-image-width: 40px;
+  border-image-outset: 40px;
+  border-image-repeat: repeat;
 }
 
 /* END SCREEN */
