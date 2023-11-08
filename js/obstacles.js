@@ -6,8 +6,14 @@ class Obstacle {
     this.playerType = playerType;
 
     // if we decide on multiple sprites for obstacles
-    this.dogImages = './img/obstacle/mermaid_dog.gif';
-    this.catImages = './img/obstacle/sadnyancat.gif';
+    this.dogImages = [
+      './img/obstacle/dog1-obs-right.gif',
+      './img/obstacle/dog2-obs-right.gif',
+    ];
+    this.catImages = [
+      './img/obstacle/cat1-obs-right.gif',
+      './img/obstacle/cat2-obs-right.gif',
+    ];
 
     // TBD: double check random position
     this.left = Math.floor(
@@ -39,15 +45,19 @@ class Obstacle {
     let imgSrc;
     if (playerType === 'dog') {
       if (type === 'friend') {
-        imgSrc = this.dogImages;
+        imgSrc =
+          this.dogImages[Math.floor(Math.random() * this.dogImages.length)];
       } else if (type === 'foe') {
-        imgSrc = this.catImages;
+        imgSrc =
+          this.catImages[Math.floor(Math.random() * this.catImages.length)];
       }
     } else if (playerType === 'cat') {
       if (type === 'friend') {
-        imgSrc = this.catImages;
+        imgSrc =
+          this.catImages[Math.floor(Math.random() * this.catImages.length)];
       } else if (type === 'foe') {
-        imgSrc = this.dogImages;
+        imgSrc =
+          this.dogImages[Math.floor(Math.random() * this.dogImages.length)];
       }
     }
 

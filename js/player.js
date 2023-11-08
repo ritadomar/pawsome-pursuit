@@ -12,8 +12,8 @@ class Player {
     this.directionY = 0; // -1 top, 0 still, 1 bottom
 
     // adding images to the class
-    this.dogImage = './img/player/dog-cake.gif';
-    this.catImage = './img/player/taco_cat.png';
+    this.dogImage = './img/player/dog-player-right.gif';
+    this.catImage = './img/player/cat-player-right.gif';
 
     // DOM manipulation: to insert the player in the screen
     this.element = document.createElement('img');
