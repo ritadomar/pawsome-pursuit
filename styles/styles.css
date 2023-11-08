@@ -1,3 +1,56 @@
+/* Importing font */
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&display=swap');
+
+/* Variables */
+:root {
+  /* colors */
+  --black: #000000;
+  --white: #fef0d0;
+  --yellow: #fed16a;
+  --brown: #ef793b;
+  --dark-brown: #931b0a;
+  --shadow-brown: #b43e21;
+
+  /* shadow */
+  --button-shadow: 4px 4px 0px 0px #b43e21, 4px 0px 0px 0px #b43e21,
+    0px 4px 0px 0px #b43e21;
+  --board-shadow: 0px 0px 0px 4px #931b0a, -8px 8px 0px 0px #b43e21 inset;
+
+  /* font */
+  --pixel: 'Pixelify Sans', sans-serif;
+}
+
+/* Resetting margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* BUTTONS */
+.primary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  padding: 8px 16px;
+
+  font-family: var(--pixel);
+  font-size: 18px;
+  font-weight: 600;
+
+  color: var(--black);
+  background-color: var(--yellow);
+
+  border: 5px solid var(--dark-brown);
+
+  box-shadow: var(--button-shadow);
+}
+
+.primary > img {
+  width: 50px;
+}
+
 /* INTRO SCREEN */
 /* GAME CONTAINER */
 #game-container {
