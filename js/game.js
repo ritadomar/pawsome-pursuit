@@ -81,11 +81,18 @@ class Game {
         if (obstacle.type === 'friend') {
           // adds score
           this.score += 100;
-          // ADD LOGIC TO GROW PLAYER
+          // grow player image
           this.player.grow();
         } else if (obstacle.type === 'foe') {
           // reduce the lives by 1
           this.lives--;
+
+          // update images of lives: remove life-img & add lifeless-img
+          document.querySelector('.life-img').className = 'lifeless-img';
+          let lifelessArray = document.querySelectorAll('.lifeless-img');
+          lifelessArray.forEach(element => {
+            element.src = 'img/lives/lifeless.png';
+          });
         }
       }
     });
@@ -149,11 +156,9 @@ class Game {
   }
 
   updateStats() {
-    // update inner texts of Stats
-    const lives = document.getElementById('lives');
+    // update inner texts of Stats: time & score
     const time = document.getElementById('time');
     const score = document.getElementById('score');
-    lives.innerText = this.lives;
     time.innerText = `${this.timeInMinutes}:${this.timeInSeconds}`;
     score.innerText = this.score;
   }
