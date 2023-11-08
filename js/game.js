@@ -37,7 +37,7 @@ class Game {
 
     // hiding the start screen and showing the game screen
     this.startScreen.style.display = 'none';
-    this.gameContainer.style.display = 'block';
+    this.gameContainer.style.display = 'flex';
 
     // what makes the game run over and over again
     this.gameLoop();

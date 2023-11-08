@@ -12,32 +12,60 @@
       <div id="start-screen" class="board big">
         <h1 class="title">Pawsome Pursuit</h1>
         <img src="./img/logo.png" alt="Pawsome Pursuit" class="logo" />
-        <h2 class="subtitle">Pick your player:</h2>
-        <button id="dog" class="player-selector primary">
-          <img src="./img/player/dog-player-right.gif" alt="Dog player image" />
-          Dog
-        </button>
-        <button id="cat" class="player-selector primary">
-          <img src="./img/player/cat-player-right.gif" alt="Cat player image" />
-          Cat
-        </button>
+        <h2 class="subtitle">Pick your player</h2>
+        <div class="players">
+          <button id="dog" class="player-selector primary">
+            <img
+              src="./img/player/dog-player-right.gif"
+              alt="Dog player image"
+            />
+            Dog
+          </button>
+          <button id="cat" class="player-selector primary">
+            <img
+              src="./img/player/cat-player-right.gif"
+              alt="Cat player image"
+            />
+            Cat
+          </button>
+        </div>
         <!-- <button id="start-button">Start Game</button> -->
       </div>
 
       <!-- GAME CONTAINER -->
       <div id="game-container">
-        <h1 class="title">Pawsome Pursuit</h1>
-        <img src="./img/logo.png" alt="Pawsome Pursuit" class="logo game" />
-        <!-- Score -->
-        <div id="stats">
-          <p>
-            Lives:
-            <img class="life-img" src="img/lives/life.png" alt="life-icon" />
-            <img class="life-img" src="img/lives/life.png" alt="life-icon" />
-            <img class="life-img" src="img/lives/life.png" alt="life-icon" />
-          </p>
-          <p>Score: <span id="score">0</span></p>
-          <p>Time Elapsed: <span id="time">00:00</span></p>
+        <div class="top-stats">
+          <h1 class="title">Pawsome Pursuit</h1>
+          <img src="./img/logo.png" alt="Pawsome Pursuit" class="logo game" />
+          <!-- Score -->
+          <div id="stats">
+            <div class="board small">
+              <p>Lives:</p>
+              <div class="lives">
+                <img
+                  class="life-img"
+                  src="img/lives/life.png"
+                  alt="life-icon"
+                />
+                <img
+                  class="life-img"
+                  src="img/lives/life.png"
+                  alt="life-icon"
+                />
+                <img
+                  class="life-img"
+                  src="img/lives/life.png"
+                  alt="life-icon"
+                />
+              </div>
+            </div>
+            <div class="board small">
+              <p>Score: <span id="score">0</span></p>
+            </div>
+            <div class="board small">
+              <p>Time Elapsed: <span id="time">00:00</span></p>
+            </div>
+          </div>
         </div>
 
         <!-- Game Screen -->

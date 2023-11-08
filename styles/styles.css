@@ -41,34 +41,6 @@ main {
   font-family: var(--pixel);
 }
 
-/* BOARD SCREENS */
-.board {
-  box-sizing: border-box;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: var(--brown);
-  border: 4px solid var(--yellow);
-  box-shadow: var(--board-shadow);
-}
-
-.big {
-  width: 70vw;
-  height: 70vh;
-
-  flex-direction: column;
-  justify-content: flex-end;
-
-  padding: 56px 206px;
-}
-
-.small {
-  gap: 8px;
-  padding: 16px 16px 13px 16px;
-}
-
 /* BUTTONS */
 .primary {
   display: flex;
@@ -118,14 +90,88 @@ main {
   top: 5vh;
 }
 
+.logo.game {
+  position: static;
+  height: 100px;
+}
+
+/* BOARDS */
+.board {
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--brown);
+  border: 4px solid var(--yellow);
+  box-shadow: var(--board-shadow);
+}
+
+.big {
+  width: 70vw;
+  height: 70vh;
+
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 56px 206px;
+}
+
+.small {
+  gap: 8px;
+  padding: 16px 16px 13px 16px;
+
+  width: 200px;
+}
+
+/* MAIN SCREEN */
+.players {
+  display: flex;
+  gap: 16px;
+}
+
+/* STATS */
+.top-stats {
+  position: relative;
+
+  width: 75vw;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 1;
+}
+
+#stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lives {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 4px;
+}
+
+.lives img {
+  width: 20px;
+}
+
 /* INTRO SCREEN */
 /* GAME CONTAINER */
 #game-container {
   display: none;
+  flex-direction: column;
+  align-items: center;
 }
 
 #game-screen {
   position: relative;
+
+  top: -40px;
 
   /* source | slice | width | outset | repeat */
   border-image-source: url('../img/floor/game-floor2.jpg');
