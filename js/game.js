@@ -152,7 +152,11 @@ class Game {
     this.stopTimer();
 
     const finalScore = document.getElementById('final-score');
-    finalScore.innerText = `${this.timeInMinutes}:${this.timeInSeconds}`;
+
+    // when the final score was time
+    // finalScore.innerText = `${this.timeInMinutes}:${this.timeInSeconds}`;
+
+    finalScore.innerText = this.score;
   }
 
   updateStats() {

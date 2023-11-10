@@ -47,7 +47,6 @@ class Player {
     this.top += this.directionY * 1.2;
 
     // preventing the player from leaving the game screen
-    // TO-DO: REVIEW THE NUMBERS
     // left side
     if (this.left < 10) {
       this.left = 10;

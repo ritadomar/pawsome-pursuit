@@ -15,7 +15,7 @@ class Obstacle {
       './img/obstacle/cat2-obs-right.gif',
     ];
 
-    // TBD: double check random position
+    // random position in the beginning
     this.left = Math.floor(
       Math.random() * document.documentElement.clientWidth * 0.7
     );
@@ -40,7 +40,7 @@ class Obstacle {
     this.addObstacle(this.playerType, this.type);
   }
 
-  // FINISH ADD OBSTACLE
+  // to add obstacles in the game
   addObstacle(playerType, type) {
     let imgSrc;
     if (playerType === 'dog') {
@@ -67,7 +67,6 @@ class Obstacle {
     this.element.style.height = `${this.height}px`;
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
-    // this.element.style.backgroundColor = 'red';
     this.gameScreen.appendChild(this.element);
   }
 

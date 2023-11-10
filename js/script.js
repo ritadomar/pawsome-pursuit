@@ -1,5 +1,3 @@
-// delays the JS from running straight away!
-// imagine the website has very heavy images. we have a safekeep below to allow the website to load first and the JS to run next
 window.onload = function () {
   const playerSelector = document.querySelectorAll('.player-selector');
   const restartButton = document.getElementById('restart-button');
@@ -19,7 +17,7 @@ window.onload = function () {
   window.addEventListener('keydown', event => {
     event.preventDefault();
 
-    switch (event.key) {
+    /* switch (event.key) {
       case 'ArrowUp':
         game.player.directionY = -1;
         break;
@@ -32,6 +30,29 @@ window.onload = function () {
       case 'ArrowRight':
         game.player.directionX = 1;
         break;
+    } */
+
+    switch (event.key) {
+      case 'ArrowUp':
+        game.player.directionY = -1;
+        game.player.directionX = 0;
+        break;
+      case 'ArrowDown':
+        game.player.directionY = 1;
+        game.player.directionX = 0;
+        break;
+      case 'ArrowLeft':
+        game.player.directionX = -1;
+        game.player.directionY = 0;
+        break;
+      case 'ArrowRight':
+        game.player.directionX = 1;
+        game.player.directionY = 0;
+        break;
+
+      case 'ArrowRight' && 'ArrowUp':
+        game.player.directionY = -1;
+        game.player.directionX = 1;
     }
   });
 
