@@ -307,7 +307,7 @@ a {
   height: 70vh;
 
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
 
   padding: 40px 56px;
 }
@@ -319,6 +319,8 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 55px;
+
+  margin-top: 40px;
 }
 
 /* setup the instructions divs */
@@ -431,8 +433,6 @@ a {
   width: 100%;
   display: flex;
   justify-content: center;
-
-  margin-bottom: 20px;
 }
 
 #back-game {
