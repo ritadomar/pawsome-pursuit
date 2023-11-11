@@ -283,6 +283,8 @@ a {
   justify-content: center;
 
   gap: 8px;
+
+  margin-top: 40px;
 }
 
 .time-result {
@@ -297,8 +299,6 @@ a {
   width: 100%;
   min-width: 200px;
   max-width: 370px;
-
-  margin-bottom: 80px;
 }
 
 /* INSTRUCTIONS PAGE */
