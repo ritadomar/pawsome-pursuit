@@ -81,6 +81,10 @@ main {
   cursor: url('../img/cursors/pointer.cur'), auto;
 }
 
+a {
+  cursor: url('../img/cursors/pointer.cur'), auto;
+}
+
 /* TITLES */
 .title {
   /* hiding h1 in an accessible way */
@@ -296,7 +300,7 @@ main {
   flex-direction: column;
   justify-content: flex-end;
 
-  padding: 56px;
+  padding: 40px 56px;
 }
 
 /* this also applies to credits page */
@@ -338,7 +342,8 @@ main {
   align-items: flex-start;
 }
 
-.player-title {
+/* this also applies to credits page */
+.title-image {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -370,7 +375,6 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-content: stretch;
   align-items: center;
   gap: 25px;
 }
@@ -382,10 +386,48 @@ main {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: flex-start;
-  gap: 100px;
+  gap: 70px;
+  padding-left: 60px;
+  padding-right: 60px;
+  margin-bottom: 40px;
+}
+
+#credits .text-page {
+  gap: 50px;
 }
 
 #game-creators img {
   width: 40px;
   height: 40px;
+}
+
+#credits-container a {
+  color: var(--black);
+}
+
+#game-creators {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#special-thanks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#end-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 20px;
+}
+
+#back-game {
+  width: 100%;
+  min-width: 200px;
+  max-width: 370px;
 }
