@@ -1,5 +1,6 @@
 /* Importing font */
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&family=Silkscreen&display=swap');
+
 /* Variables */
 :root {
   /* colors */
@@ -24,6 +25,12 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+/* BODY */
+/* defining new cursor */
+body {
+  cursor: url('../img/cursors/arrow.cur'), auto;
 }
 
 /* MAIN */
@@ -60,10 +67,18 @@ main {
   border: 5px solid var(--dark-brown);
 
   box-shadow: var(--button-shadow);
+
+  cursor: url('../img/cursors/pointer.cur'), auto;
 }
 
 .primary > img {
   width: 50px;
+}
+
+.primary > a {
+  text-decoration: none;
+  color: inherit;
+  cursor: url('../img/cursors/pointer.cur'), auto;
 }
 
 /* TITLES */
@@ -79,6 +94,34 @@ main {
 .subtitle {
   font-size: 32px;
   font-weight: 600;
+  text-align: center;
+}
+
+/* NUMBER ELEMENTS */
+.number {
+  font-family: var(--pixel-numbers);
+  line-height: normal;
+}
+
+.small-number {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -1.8px;
+  line-height: normal;
+}
+
+.medium-number {
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -1.2px;
+}
+
+.big-number {
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: -3.2px;
+
+  margin-bottom: 20px;
 }
 
 /* LOGO */
@@ -106,6 +149,11 @@ main {
   background-color: var(--brown);
   border: 4px solid var(--yellow);
   box-shadow: var(--board-shadow);
+
+  /* defining body font */
+  font-size: 18px;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .big {
@@ -114,21 +162,70 @@ main {
 
   flex-direction: column;
   justify-content: flex-end;
+  gap: 40px;
 
   padding: 56px 206px;
 }
 
 .small {
+  align-items: center;
+
   gap: 8px;
   padding: 16px 16px 13px 16px;
 
-  width: 200px;
+  width: 220px;
 }
 
-/* MAIN SCREEN */
+/* INTRO SCREEN */
+.pick {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
 .players {
   display: flex;
   gap: 16px;
+}
+
+.extras {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 100%;
+  min-width: 200px;
+  max-width: 370px;
+
+  margin-bottom: 80px;
+}
+
+.extras > button {
+  width: 100%;
+}
+
+/* GAME CONTAINER */
+#game-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 40px;
+}
+
+#game-screen {
+  position: relative;
+
+  top: -15px;
+
+  /* source | slice | width | outset | repeat */
+  border-image-source: url('../img/floor/game-floor2.jpg');
+  border-image-slice: 40 fill;
+  border-image-width: 40px;
+  border-image-outset: 40px;
+  border-image-repeat: repeat;
 }
 
 /* STATS */
@@ -139,7 +236,7 @@ main {
 
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 
   z-index: 1;
 }
@@ -160,28 +257,32 @@ main {
   width: 20px;
 }
 
-/* INTRO SCREEN */
-/* GAME CONTAINER */
-#game-container {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-}
-
-#game-screen {
-  position: relative;
-
-  top: -40px;
-
-  /* source | slice | width | outset | repeat */
-  border-image-source: url('../img/floor/game-floor2.jpg');
-  border-image-slice: 40 fill;
-  border-image-width: 40px;
-  border-image-outset: 40px;
-  border-image-repeat: repeat;
-}
-
 /* END SCREEN */
 #end-screen {
   display: none;
+}
+
+.final-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+}
+
+.time-result {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 8px;
+}
+
+#restart-button {
+  width: 100%;
+  min-width: 200px;
+  max-width: 370px;
+
+  margin-bottom: 80px;
 }

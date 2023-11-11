@@ -146,17 +146,19 @@ class Game {
 
     // hide the game screen and show the end screen
     this.gameContainer.style.display = 'none';
-    this.endScreen.style.display = 'block';
+    this.endScreen.style.display = 'flex';
 
     // stop time counting
     this.stopTimer();
 
     const finalScore = document.getElementById('final-score');
+    const finalTime = document.getElementById('final-time');
 
     // when the final score was time
     // finalScore.innerText = `${this.timeInMinutes}:${this.timeInSeconds}`;
 
     finalScore.innerText = this.score;
+    finalTime.innerText = `${this.timeInMinutes}:${this.timeInSeconds}`;
   }
 
   updateStats() {
