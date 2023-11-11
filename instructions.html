@@ -8,36 +8,65 @@
   </head>
   <body>
     <main>
-      <div id="instructions" class="board big">
+      <div class="board text">
         <h1 class="title">Pawsome Pursuit</h1>
         <img src="./img/logo.png" alt="Pawsome Pursuit" class="logo" />
-        <h2 class="subtitle">Instructions</h2>
-        <h3>Move</h3>
-        <img src="./img/arrow-keys-2.png" alt="arrow keys icon" />
 
-        <h3>Player Dog</h3>
-        <img src="./img/player/dog-player-right.gif" alt="dog gif" />
+        <div class="text-page">
+          <h2 class="subtitle">Instructions</h2>
 
-        <p>Avoid cats or you loose lives</p>
-        <img src="./img/obstacle/cat1-obs-right.gif" alt="cat gif" />
+          <div id="instructions">
+            <div class="move-instruction">
+              <h3>Move</h3>
+              <img
+                src="./img/arrow-keys-2.png"
+                alt="arrow keys icon"
+                class="arrows-icon"
+              />
+            </div>
 
-        <p>Collect dogs and get more points!</p>
-        <img src="./img/obstacle/dog1-obs-right.gif" alt="dog gif" />
+            <div class="player-instruction">
+              <div class="player-title">
+                <h3>Player Dog</h3>
+                <img src="./img/player/dog-player-right.gif" alt="dog gif" />
+              </div>
 
-        <h3>Player Cat</h3>
-        <img src="./img/player/cat-player-right.gif" alt="cat gif" />
+              <div class="goal-text">
+                <img src="./img/obstacle/cat1-obs-right.gif" alt="cat gif" />
+                <p>Avoid cats or you loose lives</p>
+              </div>
 
-        <p>Avoid dogs or you loose lives</p>
-        <img src="./img/obstacle/dog1-obs-right.gif" alt="dog gif" />
+              <div class="goal-text">
+                <img src="./img/obstacle/dog1-obs-right.gif" alt="dog gif" />
+                <p>Collect dogs and get more points!</p>
+              </div>
+            </div>
 
-        <p>Collect cats and get more points!</p>
-        <img src="./img/obstacle/cat1-obs-right.gif" alt="cat gif" />
+            <div class="player-instruction">
+              <div class="player-title">
+                <h3>Player Cat</h3>
+                <img src="./img/player/cat-player-right.gif" alt="cat gif" />
+              </div>
 
-        <p>Try to get as many points as you can without loosing lives</p>
+              <div class="goal-text">
+                <img src="./img/obstacle/dog1-obs-right.gif" alt="dog gif" />
+                <p>Avoid dogs or you loose lives</p>
+              </div>
 
-        <button id="back-game" class="primary">
-          <a href="index.html">Back to Game</a>
-        </button>
+              <div class="goal-text">
+                <img src="./img/obstacle/cat1-obs-right.gif" alt="cat gif" />
+                <p>Collect cats and get more points!</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="final-instruction">
+            <h3>Try to get as many points as you can without loosing lives</h3>
+            <button id="back-game" class="primary">
+              <a href="index.html">Back to Game</a>
+            </button>
+          </div>
+        </div>
       </div>
     </main>
   </body>

@@ -185,3 +185,106 @@ main {
 #end-screen {
   display: none;
 }
+
+/* INSTRUCTIONS PAGE */
+/* setting the limits of the page for text-only page*/
+.text {
+  width: 70vw;
+  height: 70vh;
+
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 56px;
+}
+
+/* this also applies to credits page */
+.text-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 55px;
+}
+
+/* setup the instructions divs */
+#instructions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 70px;
+}
+
+/* setup the images sizes */
+.player-instruction img {
+  width: 40px;
+  height: 40px;
+}
+
+.move-instruction img {
+  width: 120px;
+}
+
+/* setup the rows of instructions inside the instructions div */
+.player-instruction {
+  display: inline-flex;
+  gap: 15px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.player-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.goal-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.goal-text p {
+  padding-top: 10px;
+}
+
+.move-instruction {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+
+  padding-top: 10px;
+}
+
+/* setup the final instruction in the page */
+#final-instruction {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: stretch;
+  align-items: center;
+  gap: 25px;
+}
+
+/* CREDITS PAGE */
+#credits-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 100px;
+}
+
+#game-creators img {
+  width: 40px;
+  height: 40px;
+}
