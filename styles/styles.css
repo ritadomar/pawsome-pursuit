@@ -81,6 +81,10 @@ main {
   cursor: url('../img/cursors/pointer.cur'), auto;
 }
 
+a {
+  cursor: url('../img/cursors/pointer.cur'), auto;
+}
+
 /* TITLES */
 .title {
   /* hiding h1 in an accessible way */
@@ -255,6 +259,15 @@ main {
 
 .lives img {
   width: 20px;
+}
+
+#player {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
 }
 
 /* END SCREEN */
