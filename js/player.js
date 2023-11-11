@@ -16,7 +16,7 @@ class Player {
     this.catImage = './img/player/cat-player-right.gif';
 
     // DOM manipulation: to insert the player in the screen
-    this.element = document.createElement('img');
+    this.element = document.createElement('div');
 
     // callback function to add player
     this.addPlayer(this.playerType);
@@ -24,17 +24,25 @@ class Player {
 
   // to add the player to the screen
   addPlayer(playerType) {
+    this.element.setAttribute('id', 'player');
+
     let imgSrc;
+
     if (playerType === 'dog') {
       imgSrc = this.dogImage;
     } else if (playerType === 'cat') {
       imgSrc = this.catImage;
     }
 
-    this.element.src = imgSrc;
+    let image = document.createElement('img');
+    image.setAttribute('id', 'player-image');
+    image.src = imgSrc;
+    image.style.width = `${this.width}px`;
+    this.element.appendChild(image);
+
     this.element.style.position = 'absolute';
-    this.element.style.width = `${this.width}px`;
-    this.element.style.height = `${this.height}px`;
+    this.element.style.width = `${this.width - 10}px`;
+    this.element.style.height = `${this.height - 10}px`;
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
     this.gameScreen.appendChild(this.element);
@@ -101,10 +109,14 @@ class Player {
   }
 
   grow() {
+    let playerImage = document.getElementById('player-image');
+
     this.width *= 1.1;
     this.height *= 1.1;
 
-    this.element.style.width = `${this.width}px`;
-    this.element.style.height = `${this.height}px`;
+    playerImage.style.width = `${this.width}px`;
+
+    this.element.style.width = `${this.width - 10 * 1.1}px`;
+    this.element.style.height = `${this.height - 10 * 1.1}px`;
   }
 }

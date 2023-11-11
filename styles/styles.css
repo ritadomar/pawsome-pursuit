@@ -261,6 +261,15 @@ a {
   width: 20px;
 }
 
+#player {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+}
+
 /* END SCREEN */
 #end-screen {
   display: none;
