@@ -114,7 +114,7 @@ class Game {
 
       // add new obstacle to array of obstacles
       this.allObstacles.push(newObstacle);
-    } else if (Math.random() > 0.9977777 && this.allObstacles.length >= 5) {
+    } else if (Math.random() > 0.997 && this.allObstacles.length >= 5) {
       // randomize obstacle type
       let selectedObstacle = obstacleTypes[Math.floor(Math.random() * 2)];
 

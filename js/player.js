@@ -43,8 +43,8 @@ class Player {
   // to move the player
   move() {
     // update the player position
-    this.left += this.directionX * 1.2;
-    this.top += this.directionY * 1.2;
+    this.left += this.directionX * 1.5;
+    this.top += this.directionY * 1.5;
 
     // preventing the player from leaving the game screen
     // left side

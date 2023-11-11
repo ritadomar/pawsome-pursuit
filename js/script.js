@@ -17,21 +17,6 @@ window.onload = function () {
   window.addEventListener('keydown', event => {
     event.preventDefault();
 
-    /* switch (event.key) {
-      case 'ArrowUp':
-        game.player.directionY = -1;
-        break;
-      case 'ArrowDown':
-        game.player.directionY = 1;
-        break;
-      case 'ArrowLeft':
-        game.player.directionX = -1;
-        break;
-      case 'ArrowRight':
-        game.player.directionX = 1;
-        break;
-    } */
-
     switch (event.key) {
       case 'ArrowUp':
         game.player.directionY = -1;
@@ -49,10 +34,6 @@ window.onload = function () {
         game.player.directionX = 1;
         game.player.directionY = 0;
         break;
-
-      case 'ArrowRight' && 'ArrowUp':
-        game.player.directionY = -1;
-        game.player.directionX = 1;
     }
   });
 
