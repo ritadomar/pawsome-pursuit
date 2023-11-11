@@ -12,29 +12,33 @@
       <div id="start-screen" class="board big">
         <h1 class="title">Pawsome Pursuit</h1>
         <img src="./img/logo.png" alt="Pawsome Pursuit" class="logo" />
-        <h2 class="subtitle">Pick your player</h2>
-        <div class="players">
-          <button id="dog" class="player-selector primary">
-            <img
-              src="./img/player/dog-player-right.gif"
-              alt="Dog player image"
-            />
-            Dog
+        <div class="pick">
+          <h2 class="subtitle">Pick your player</h2>
+          <div class="players">
+            <button id="dog" class="player-selector primary">
+              <img
+                src="./img/player/dog-player-right.gif"
+                alt="Dog player image"
+              />
+              Dog
+            </button>
+            <button id="cat" class="player-selector primary">
+              <img
+                src="./img/player/cat-player-right.gif"
+                alt="Cat player image"
+              />
+              Cat
+            </button>
+          </div>
+        </div>
+        <div class="extras">
+          <button id="instructions" class="primary">
+            <a href="instructions.html">Instructions</a>
           </button>
-          <button id="cat" class="player-selector primary">
-            <img
-              src="./img/player/cat-player-right.gif"
-              alt="Cat player image"
-            />
-            Cat
+          <button id="credits" class="primary">
+            <a href="credits.html">Credits</a>
           </button>
         </div>
-        <button id="instructions" class="primary">
-          <a href="instructions.html">Instructions</a>
-        </button>
-        <button id="credits" class="primary">
-          <a href="credits.html">Credits</a>
-        </button>
       </div>
 
       <!-- GAME CONTAINER -->
@@ -65,10 +69,15 @@
               </div>
             </div>
             <div class="board small">
-              <p>Score: <span id="score">0</span></p>
+              <p>
+                Score: <span id="score" class="number small-number">0</span>
+              </p>
             </div>
             <div class="board small">
-              <p>Time Elapsed: <span id="time">00:00</span></p>
+              <p>
+                Time Elapsed:
+                <span id="time" class="number small-number">00:00</span>
+              </p>
             </div>
           </div>
         </div>
@@ -82,8 +91,14 @@
         <h1 class="title">Pawsome Pursuit</h1>
         <img src="./img/logo.png" alt="Pawsome Pursuit" class="logo" />
         <h2 class="subtitle">Game Over</h2>
-        <h3>Your score was</h3>
-        <p id="final-score"></p>
+        <div class="final-stats">
+          <h3>Your score was</h3>
+          <p id="final-score" class="number big-number"></p>
+          <h3 class="time-result">
+            Your time:
+            <span id="final-time" class="number medium-number"></span>
+          </h3>
+        </div>
 
         <button id="restart-button" class="primary">Play Again</button>
       </div>
