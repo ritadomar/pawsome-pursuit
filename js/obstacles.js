@@ -27,8 +27,8 @@ class Obstacle {
     this.directionY = null; // -1 top, 1 bottom
 
     // assuming square obstacle for now
-    this.width = 50;
-    this.height = 50;
+    this.width = 40;
+    this.height = 40;
 
     // method will randomize the direction so obstacles will move in different directions the moment they are created
     this.randomizeDirection();
@@ -42,6 +42,8 @@ class Obstacle {
 
   // to add obstacles in the game
   addObstacle(playerType, type) {
+    this.element.setAttribute('class', 'obstacle');
+
     let imgSrc;
     if (playerType === 'dog') {
       if (type === 'friend') {

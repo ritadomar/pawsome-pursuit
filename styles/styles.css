@@ -72,8 +72,11 @@ main {
   cursor: url('../img/cursors/pointer.cur'), auto;
 }
 
-.primary > img {
-  width: 50px;
+.player-img {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  object-fit: contain;
 }
 
 /* a > .primary {
@@ -262,12 +265,9 @@ a {
   width: 20px;
 }
 
-#player {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-
+#player,
+.obstacle {
+  object-fit: cover;
   overflow: visible;
 }
 
