@@ -108,6 +108,12 @@ class Obstacle {
   }
 
   updatePosition() {
+    if (this.directionX === -1) {
+      this.element.style.transform = 'scaleX(-1)';
+    } else if (this.directionX === 1) {
+      this.element.style.transform = 'none';
+    }
+
     this.element.style.top = `${this.top}px`;
     this.element.style.left = `${this.left}px`;
   }

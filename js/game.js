@@ -9,6 +9,9 @@ class Game {
     this.height = 70; // adjust the numbers
     this.width = 70; // adjust the numbers
 
+    this.music = document.getElementById('music');
+    this.loseSound = document.getElementById('lose');
+
     // create player
     this.player = new Player(playerType, this.gameScreen, 40, 40); // adjust the numbers
 
@@ -26,11 +29,16 @@ class Game {
     this.lives = 3;
     this.score = 0;
 
+    this.friendSound = document.getElementById('friend-sound');
+    this.foeSound = document.getElementById('foe-sound');
+
     // to check if game is over
     this.isGameOver = false;
   }
 
   start() {
+    // playing the song
+    this.music.play();
     // setting the game screen size
     this.gameScreen.style.height = `${this.height}vh`;
     this.gameScreen.style.width = `${this.width}vw`;
@@ -79,11 +87,15 @@ class Game {
         this.allObstacles.splice(index, 1);
 
         if (obstacle.type === 'friend') {
+          // play sound
+          this.friendSound.play();
           // adds score
           this.score += 100;
           // grow player image
           this.player.grow();
         } else if (obstacle.type === 'foe') {
+          // play sound
+          this.foeSound.play();
           // reduce the lives by 1
           this.lives--;
 
@@ -138,6 +150,9 @@ class Game {
   }
 
   endGame() {
+    this.music.pause();
+    this.loseSound.play();
+
     // remove all elements from the screen
     this.player.element.remove();
     this.allObstacles.forEach(obstacle => obstacle.element.remove());

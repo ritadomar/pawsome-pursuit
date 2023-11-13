@@ -80,6 +80,11 @@ class Player {
 
   // DOM manipulation: to update the player position
   updatePosition() {
+    if (this.directionX === -1) {
+      this.element.style.transform = 'scaleX(-1)';
+    } else if (this.directionX === 1) {
+      this.element.style.transform = 'none';
+    }
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
   }

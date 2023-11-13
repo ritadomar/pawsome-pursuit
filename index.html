@@ -60,6 +60,21 @@
 
       <!-- GAME CONTAINER -->
       <div id="game-container">
+        <audio loop id="music">
+          <source
+            src="./sound/Stardew Valley OST - Summer (Nature's Crescendo).mp3"
+            type="audio/mp3"
+          />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="friend-sound">
+          <source src="./sound/healSound.wav" type="audio/wav" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="foe-sound">
+          <source src="./sound/flameSpellHit.wav" type="audio/wav" />
+          Your browser does not support the audio element.
+        </audio>
         <div class="top-stats">
           <h1 class="title">Pawsome Pursuit</h1>
           <img src="./img/logo.png" alt="Pawsome Pursuit" class="logo game" />
@@ -105,6 +120,9 @@
 
       <!-- END SCREEN -->
       <div id="end-screen" class="board big">
+        <audio id="lose">
+          <source src="./sound/chicken_cluck.wav" type="audio/wav" />
+        </audio>
         <h1 class="title">Pawsome Pursuit</h1>
         <img src="./img/logo.png" alt="Pawsome Pursuit" class="logo" />
         <h2 class="subtitle">Game Over</h2>
