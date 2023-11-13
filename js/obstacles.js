@@ -5,7 +5,7 @@ class Obstacle {
     this.type = type; // will be friend or foe, this will determine image added
     this.playerType = playerType;
 
-    // if we decide on multiple sprites for obstacles
+    // array with multiple sprites for obstacles
     this.dogImages = [
       './img/obstacle/dog1-obs-right.gif',
       './img/obstacle/dog2-obs-right.gif',
