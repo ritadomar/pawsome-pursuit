@@ -265,6 +265,10 @@ a {
   width: 20px;
 }
 
+.lifeless-img {
+  mix-blend-mode: overlay;
+}
+
 #player,
 .obstacle {
   object-fit: cover;
